@@ -21,11 +21,24 @@
         main {
             padding: 2rem;
         }
-        .categorie-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #555;
+            color: white;
+        }
+        img, video {
+            width: 100px;
+            height: auto;
         }
         footer {
             background: #333;
@@ -43,12 +56,56 @@
     </header>
     
     <main>
-        <section id="categorie">
-            <h2>Categorie</h2>
-            <div class="categorie-container">
-                <!-- Qui aggiungeremo le categorie -->
-            </div>
-        </section>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Video</th>
+                <th>Immagine 1</th>
+                <th>Immagine 2</th>
+            </tr>
+            <tr>
+                <td>Davide Corna</td>
+                <td><video src="media/davide_video.mp4" controls></video></td>
+                <td><img src="media/davide_img1.jpg" alt="Davide 1"></td>
+                <td><img src="media/davide_img2.jpg" alt="Davide 2"></td>
+            </tr>
+            <tr>
+                <td>Mauro Testa</td>
+                <td><video src="media/mauro_video.mp4" controls></video></td>
+                <td><img src="media/mauro_img1.jpg" alt="Mauro 1"></td>
+                <td><img src="media/mauro_img2.jpg" alt="Mauro 2"></td>
+            </tr>
+            <tr>
+                <td>Sabrina Carrara</td>
+                <td><video src="media/sabrina_video.mp4" controls></video></td>
+                <td><img src="media/sabrina_img1.jpg" alt="Sabrina 1"></td>
+                <td><img src="media/sabrina_img2.jpg" alt="Sabrina 2"></td>
+            </tr>
+            <tr>
+                <td>Ilaria Bortolotti</td>
+                <td><video src="media/ilaria_video.mp4" controls></video></td>
+                <td><img src="media/ilaria_img1.jpg" alt="Ilaria 1"></td>
+                <td><img src="media/ilaria_img2.jpg" alt="Ilaria 2"></td>
+            </tr>
+            <tr>
+                <td>Greta Tintori</td>
+                <td><video src="media/greta_video.mp4" controls></video></td>
+                <td><img src="media/greta_img1.jpg" alt="Greta 1"></td>
+                <td><img src="media/greta_img2.jpg" alt="Greta 2"></td>
+            </tr>
+            <tr>
+                <td>Silvia Gandini</td>
+                <td><video src="media/silvia_video.mp4" controls></video></td>
+                <td><img src="media/silvia_img1.jpg" alt="Silvia 1"></td>
+                <td><img src="media/silvia_img2.jpg" alt="Silvia 2"></td>
+            </tr>
+            <tr>
+                <td>Gabriele Vavassori</td>
+                <td><video src="media/gabriele_video.mp4" controls></video></td>
+                <td><img src="media/gabriele_img1.jpg" alt="Gabriele 1"></td>
+                <td><img src="media/gabriele_img2.jpg" alt="Gabriele 2"></td>
+            </tr>
+        </table>
     </main>
     
     <footer>
