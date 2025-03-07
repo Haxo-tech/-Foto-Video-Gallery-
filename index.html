@@ -3,127 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galleria Multimedia</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Galleria Multimediale</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
             background-color: #f4f4f4;
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             padding: 20px;
         }
-        .media-item {
-            position: relative;
+        .category {
             background: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         img, video {
             max-width: 100%;
-            height: auto;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-        button {
-            margin-top: 10px;
-            padding: 8px 12px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
             border-radius: 5px;
             cursor: pointer;
         }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .fullscreen-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-        }
-        .fullscreen-modal img, .fullscreen-modal video {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 30px;
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            border: none;
+            background: #007BFF;
             color: white;
+            border-radius: 5px;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <h1>Galleria Multimediale</h1>
     <div class="gallery">
-        <div class="media-item">
-            <img src="image1.jpg" alt="Descrizione immagine 1" onclick="openFullscreen(this.src)">
-            <button onclick="downloadFile('image1.jpg')">Scarica</button>
+        <div class="category">
+            <h2>Davide Corna</h2>
+            <video controls>
+                <source src="davide.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="davide1.jpg" alt="Davide Corna 1" onclick="openFullScreen(this)">
+            <img src="davide2.jpg" alt="Davide Corna 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('davide.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('davide1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('davide2.jpg')">Scarica Immagine 2</button>
         </div>
-        <div class="media-item">
-            <video src="video1.mp4" controls onclick="openFullscreen(this.src)"></video>
-            <button onclick="downloadFile('video1.mp4')">Scarica</button>
+        <div class="category">
+            <h2>Mauro Testa</h2>
+            <video controls>
+                <source src="mauro.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="mauro1.jpg" alt="Mauro Testa 1" onclick="openFullScreen(this)">
+            <img src="mauro2.jpg" alt="Mauro Testa 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('mauro.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('mauro1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('mauro2.jpg')">Scarica Immagine 2</button>
+        </div>
+        <div class="category">
+            <h2>Sabrina Carrara</h2>
+            <video controls>
+                <source src="sabrina.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="sabrina1.jpg" alt="Sabrina Carrara 1" onclick="openFullScreen(this)">
+            <img src="sabrina2.jpg" alt="Sabrina Carrara 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('sabrina.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('sabrina1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('sabrina2.jpg')">Scarica Immagine 2</button>
+        </div>
+        <div class="category">
+            <h2>Ilaria Bortolotti</h2>
+            <video controls>
+                <source src="ilaria.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="ilaria1.jpg" alt="Ilaria Bortolotti 1" onclick="openFullScreen(this)">
+            <img src="ilaria2.jpg" alt="Ilaria Bortolotti 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('ilaria.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('ilaria1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('ilaria2.jpg')">Scarica Immagine 2</button>
+        </div>
+        <div class="category">
+            <h2>Greta Tintori</h2>
+            <video controls>
+                <source src="greta.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="greta1.jpg" alt="Greta Tintori 1" onclick="openFullScreen(this)">
+            <img src="greta2.jpg" alt="Greta Tintori 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('greta.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('greta1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('greta2.jpg')">Scarica Immagine 2</button>
+        </div>
+        <div class="category">
+            <h2>Silvia Gandini</h2>
+            <video controls>
+                <source src="silvia.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="silvia1.jpg" alt="Silvia Gandini 1" onclick="openFullScreen(this)">
+            <img src="silvia2.jpg" alt="Silvia Gandini 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('silvia.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('silvia1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('silvia2.jpg')">Scarica Immagine 2</button>
+        </div>
+        <div class="category">
+            <h2>Gabriele Vavassori</h2>
+            <video controls>
+                <source src="gabriele.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+            <img src="gabriele1.jpg" alt="Gabriele Vavassori 1" onclick="openFullScreen(this)">
+            <img src="gabriele2.jpg" alt="Gabriele Vavassori 2" onclick="openFullScreen(this)">
+            <button onclick="downloadFile('gabriele.mp4')">Scarica Video</button>
+            <button onclick="downloadFile('gabriele1.jpg')">Scarica Immagine 1</button>
+            <button onclick="downloadFile('gabriele2.jpg')">Scarica Immagine 2</button>
         </div>
     </div>
-    
-    <div id="fullscreen-modal" class="fullscreen-modal">
-        <span class="close" onclick="closeFullscreen()">&times;</span>
-        <img id="fullscreen-img" src="" alt="">
-        <video id="fullscreen-video" controls></video>
-    </div>
-
-    <script>
-        function openFullscreen(src) {
-            const modal = document.getElementById("fullscreen-modal");
-            const img = document.getElementById("fullscreen-img");
-            const video = document.getElementById("fullscreen-video");
-            
-            if (src.endsWith('.mp4')) {
-                img.style.display = "none";
-                video.style.display = "block";
-                video.src = src;
-            } else {
-                video.style.display = "none";
-                img.style.display = "block";
-                img.src = src;
-            }
-            modal.style.display = "flex";
-        }
-        
-        function closeFullscreen() {
-            document.getElementById("fullscreen-modal").style.display = "none";
-        }
-        
-        function downloadFile(url) {
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = url.split('/').pop();
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-    </script>
 </body>
 </html>
