@@ -6,52 +6,82 @@
     <title>Galleria Multimediale</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
             background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
         }
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
         }
         .person {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid #ccc;
-            padding: 15px;
-            border-radius: 10px;
-            width: 320px;
-            background: #fff;
+            width: 370px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .person:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        h2 {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+        video {
+            width: 100%;
+            border-radius: 8px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
         .images {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        video {
-            width: 100%;
-            border-radius: 5px;
+            justify-content: space-between;
+            margin-top: 12px;
         }
         img {
-            width: 120px;
+            width: 48%;
             height: auto;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            transition: transform 0.2s;
+        }
+        img:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
+        }
+        .buttons {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         button {
-            margin-top: 10px;
-            padding: 8px 12px;
+            padding: 10px;
             border: none;
-            background: blue;
+            background: #007bff;
             color: white;
+            font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
         }
     </style>
 </head>
@@ -69,9 +99,11 @@
             <img src="images/davide_corna_1.jpg" alt="Davide Corna 1">
             <img src="images/davide_corna_2.jpg" alt="Davide Corna 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -83,9 +115,11 @@
             <img src="images/mauro_testa_1.jpg" alt="Mauro Testa 1">
             <img src="images/mauro_testa_2.jpg" alt="Mauro Testa 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -97,9 +131,11 @@
             <img src="images/sabrina_carrara_1.jpg" alt="Sabrina Carrara 1">
             <img src="images/sabrina_carrara_2.jpg" alt="Sabrina Carrara 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -111,9 +147,11 @@
             <img src="images/ilaria_bortolotti_1.jpg" alt="Ilaria Bortolotti 1">
             <img src="images/ilaria_bortolotti_2.jpg" alt="Ilaria Bortolotti 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -125,9 +163,11 @@
             <img src="images/greta_tintori_1.jpg" alt="Greta Tintori 1">
             <img src="images/greta_tintori_2.jpg" alt="Greta Tintori 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -139,9 +179,11 @@
             <img src="images/silvia_gandini_1.jpg" alt="Silvia Gandini 1">
             <img src="images/silvia_gandini_2.jpg" alt="Silvia Gandini 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
     <div class="person">
@@ -153,13 +195,14 @@
             <img src="images/gabriele_vavassori_1.jpg" alt="Gabriele Vavassori 1">
             <img src="images/gabriele_vavassori_2.jpg" alt="Gabriele Vavassori 2">
         </div>
-        <button>Scarica Video</button>
-        <button>Scarica Immagine 1</button>
-        <button>Scarica Immagine 2</button>
+        <div class="buttons">
+            <button>Scarica Video</button>
+            <button>Scarica Immagine 1</button>
+            <button>Scarica Immagine 2</button>
+        </div>
     </div>
 
 </div>
 
 </body>
 </html>
-
