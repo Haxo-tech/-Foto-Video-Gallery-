@@ -10,121 +10,156 @@
             text-align: center;
             background-color: #f4f4f4;
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
             padding: 20px;
         }
-        .category {
-            background: white;
+        .person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #ccc;
             padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 320px;
+            background: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        img, video {
-            max-width: 100%;
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        video {
+            width: 100%;
             border-radius: 5px;
-            cursor: pointer;
+        }
+        img {
+            width: 120px;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
         button {
             margin-top: 10px;
-            padding: 8px;
+            padding: 8px 12px;
             border: none;
-            background: #007BFF;
+            background: blue;
             color: white;
-            border-radius: 5px;
             cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Galleria Multimediale</h1>
-    <div class="gallery">
-        <div class="category">
-            <h2>Davide Corna</h2>
-            <video controls>
-                <source src="davide.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="davide1.jpg" alt="Davide Corna 1" onclick="openFullScreen(this)">
-            <img src="davide2.jpg" alt="Davide Corna 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('davide.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('davide1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('davide2.jpg')">Scarica Immagine 2</button>
+
+<h1>Galleria Multimediale</h1>
+<div class="container">
+
+    <div class="person">
+        <h2>Davide Corna</h2>
+        <video controls>
+            <source src="video/davide_corna.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/davide_corna_1.jpg" alt="Davide Corna 1">
+            <img src="images/davide_corna_2.jpg" alt="Davide Corna 2">
         </div>
-        <div class="category">
-            <h2>Mauro Testa</h2>
-            <video controls>
-                <source src="mauro.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="mauro1.jpg" alt="Mauro Testa 1" onclick="openFullScreen(this)">
-            <img src="mauro2.jpg" alt="Mauro Testa 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('mauro.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('mauro1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('mauro2.jpg')">Scarica Immagine 2</button>
-        </div>
-        <div class="category">
-            <h2>Sabrina Carrara</h2>
-            <video controls>
-                <source src="sabrina.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="sabrina1.jpg" alt="Sabrina Carrara 1" onclick="openFullScreen(this)">
-            <img src="sabrina2.jpg" alt="Sabrina Carrara 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('sabrina.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('sabrina1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('sabrina2.jpg')">Scarica Immagine 2</button>
-        </div>
-        <div class="category">
-            <h2>Ilaria Bortolotti</h2>
-            <video controls>
-                <source src="ilaria.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="ilaria1.jpg" alt="Ilaria Bortolotti 1" onclick="openFullScreen(this)">
-            <img src="ilaria2.jpg" alt="Ilaria Bortolotti 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('ilaria.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('ilaria1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('ilaria2.jpg')">Scarica Immagine 2</button>
-        </div>
-        <div class="category">
-            <h2>Greta Tintori</h2>
-            <video controls>
-                <source src="greta.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="greta1.jpg" alt="Greta Tintori 1" onclick="openFullScreen(this)">
-            <img src="greta2.jpg" alt="Greta Tintori 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('greta.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('greta1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('greta2.jpg')">Scarica Immagine 2</button>
-        </div>
-        <div class="category">
-            <h2>Silvia Gandini</h2>
-            <video controls>
-                <source src="silvia.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="silvia1.jpg" alt="Silvia Gandini 1" onclick="openFullScreen(this)">
-            <img src="silvia2.jpg" alt="Silvia Gandini 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('silvia.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('silvia1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('silvia2.jpg')">Scarica Immagine 2</button>
-        </div>
-        <div class="category">
-            <h2>Gabriele Vavassori</h2>
-            <video controls>
-                <source src="gabriele.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-            <img src="gabriele1.jpg" alt="Gabriele Vavassori 1" onclick="openFullScreen(this)">
-            <img src="gabriele2.jpg" alt="Gabriele Vavassori 2" onclick="openFullScreen(this)">
-            <button onclick="downloadFile('gabriele.mp4')">Scarica Video</button>
-            <button onclick="downloadFile('gabriele1.jpg')">Scarica Immagine 1</button>
-            <button onclick="downloadFile('gabriele2.jpg')">Scarica Immagine 2</button>
-        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
     </div>
+
+    <div class="person">
+        <h2>Mauro Testa</h2>
+        <video controls>
+            <source src="video/mauro_testa.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/mauro_testa_1.jpg" alt="Mauro Testa 1">
+            <img src="images/mauro_testa_2.jpg" alt="Mauro Testa 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+    <div class="person">
+        <h2>Sabrina Carrara</h2>
+        <video controls>
+            <source src="video/sabrina_carrara.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/sabrina_carrara_1.jpg" alt="Sabrina Carrara 1">
+            <img src="images/sabrina_carrara_2.jpg" alt="Sabrina Carrara 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+    <div class="person">
+        <h2>Ilaria Bortolotti</h2>
+        <video controls>
+            <source src="video/ilaria_bortolotti.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/ilaria_bortolotti_1.jpg" alt="Ilaria Bortolotti 1">
+            <img src="images/ilaria_bortolotti_2.jpg" alt="Ilaria Bortolotti 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+    <div class="person">
+        <h2>Greta Tintori</h2>
+        <video controls>
+            <source src="video/greta_tintori.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/greta_tintori_1.jpg" alt="Greta Tintori 1">
+            <img src="images/greta_tintori_2.jpg" alt="Greta Tintori 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+    <div class="person">
+        <h2>Silvia Gandini</h2>
+        <video controls>
+            <source src="video/silvia_gandini.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/silvia_gandini_1.jpg" alt="Silvia Gandini 1">
+            <img src="images/silvia_gandini_2.jpg" alt="Silvia Gandini 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+    <div class="person">
+        <h2>Gabriele Vavassori</h2>
+        <video controls>
+            <source src="video/gabriele_vavassori.mp4" type="video/mp4">
+        </video>
+        <div class="images">
+            <img src="images/gabriele_vavassori_1.jpg" alt="Gabriele Vavassori 1">
+            <img src="images/gabriele_vavassori_2.jpg" alt="Gabriele Vavassori 2">
+        </div>
+        <button>Scarica Video</button>
+        <button>Scarica Immagine 1</button>
+        <button>Scarica Immagine 2</button>
+    </div>
+
+</div>
+
 </body>
 </html>
+
