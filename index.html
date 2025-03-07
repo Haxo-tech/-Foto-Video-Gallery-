@@ -3,113 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galleria Foto & Video</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Galleria Multimedia</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #f4f4f4;
         }
-        header {
-            background: #333;
-            color: white;
-            padding: 1rem;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            padding: 20px;
         }
-        main {
-            padding: 2rem;
-        }
-        table {
-            width: 80%;
-            margin: auto;
-            border-collapse: collapse;
+        .media-item {
+            position: relative;
             background: white;
-        }
-        th, td {
-            border: 1px solid #ddd;
             padding: 10px;
-            text-align: center;
-        }
-        th {
-            background: #555;
-            color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         img, video {
-            width: 100px;
+            max-width: 100%;
             height: auto;
+            cursor: pointer;
+            border-radius: 8px;
         }
-        footer {
-            background: #333;
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #007BFF;
             color: white;
-            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .fullscreen-modal {
+            display: none;
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            bottom: 0;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .fullscreen-modal img, .fullscreen-modal video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Galleria Foto & Video</h1>
-    </header>
+    <div class="gallery">
+        <div class="media-item">
+            <img src="image1.jpg" alt="Descrizione immagine 1" onclick="openFullscreen(this.src)">
+            <button onclick="downloadFile('image1.jpg')">Scarica</button>
+        </div>
+        <div class="media-item">
+            <video src="video1.mp4" controls onclick="openFullscreen(this.src)"></video>
+            <button onclick="downloadFile('video1.mp4')">Scarica</button>
+        </div>
+    </div>
     
-    <main>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Video</th>
-                <th>Immagine 1</th>
-                <th>Immagine 2</th>
-            </tr>
-            <tr>
-                <td>Davide Corna</td>
-                <td><video src="media/davide_video.mp4" controls></video></td>
-                <td><img src="media/davide_img1.jpg" alt="Davide 1"></td>
-                <td><img src="media/davide_img2.jpg" alt="Davide 2"></td>
-            </tr>
-            <tr>
-                <td>Mauro Testa</td>
-                <td><video src="media/mauro_video.mp4" controls></video></td>
-                <td><img src="media/mauro_img1.jpg" alt="Mauro 1"></td>
-                <td><img src="media/mauro_img2.jpg" alt="Mauro 2"></td>
-            </tr>
-            <tr>
-                <td>Sabrina Carrara</td>
-                <td><video src="media/sabrina_video.mp4" controls></video></td>
-                <td><img src="media/sabrina_img1.jpg" alt="Sabrina 1"></td>
-                <td><img src="media/sabrina_img2.jpg" alt="Sabrina 2"></td>
-            </tr>
-            <tr>
-                <td>Ilaria Bortolotti</td>
-                <td><video src="media/ilaria_video.mp4" controls></video></td>
-                <td><img src="media/ilaria_img1.jpg" alt="Ilaria 1"></td>
-                <td><img src="media/ilaria_img2.jpg" alt="Ilaria 2"></td>
-            </tr>
-            <tr>
-                <td>Greta Tintori</td>
-                <td><video src="media/greta_video.mp4" controls></video></td>
-                <td><img src="media/greta_img1.jpg" alt="Greta 1"></td>
-                <td><img src="media/greta_img2.jpg" alt="Greta 2"></td>
-            </tr>
-            <tr>
-                <td>Silvia Gandini</td>
-                <td><video src="media/silvia_video.mp4" controls></video></td>
-                <td><img src="media/silvia_img1.jpg" alt="Silvia 1"></td>
-                <td><img src="media/silvia_img2.jpg" alt="Silvia 2"></td>
-            </tr>
-            <tr>
-                <td>Gabriele Vavassori</td>
-                <td><video src="media/gabriele_video.mp4" controls></video></td>
-                <td><img src="media/gabriele_img1.jpg" alt="Gabriele 1"></td>
-                <td><img src="media/gabriele_img2.jpg" alt="Gabriele 2"></td>
-            </tr>
-        </table>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 - By Baddy</p>
-    </footer>
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span class="close" onclick="closeFullscreen()">&times;</span>
+        <img id="fullscreen-img" src="" alt="">
+        <video id="fullscreen-video" controls></video>
+    </div>
+
+    <script>
+        function openFullscreen(src) {
+            const modal = document.getElementById("fullscreen-modal");
+            const img = document.getElementById("fullscreen-img");
+            const video = document.getElementById("fullscreen-video");
+            
+            if (src.endsWith('.mp4')) {
+                img.style.display = "none";
+                video.style.display = "block";
+                video.src = src;
+            } else {
+                video.style.display = "none";
+                img.style.display = "block";
+                img.src = src;
+            }
+            modal.style.display = "flex";
+        }
+        
+        function closeFullscreen() {
+            document.getElementById("fullscreen-modal").style.display = "none";
+        }
+        
+        function downloadFile(url) {
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = url.split('/').pop();
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
 </html>
